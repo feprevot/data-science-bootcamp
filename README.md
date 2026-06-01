@@ -25,7 +25,6 @@ numeric attributes).
   - [Module 3 — Visualization & clustering](#module-3--visualization--clustering)
   - [Module 4 — Preprocessing (Knight dataset)](#module-4--preprocessing-knight-dataset)
   - [Module 5 — Machine learning (Knight dataset)](#module-5--machine-learning-knight-dataset)
-- [Notes & caveats](#notes--caveats)
 
 ---
 
@@ -147,25 +146,3 @@ python 4/ex05/split.py Train_knight.csv
 ```bash
 python 5/ex00/Confusion_Matrix.py predictions.txt truth.txt
 ```
-
----
-
-## Notes & caveats
-
-- **scikit-learn is used throughout.** The repo description says the work is done
-  "without relying on high-level libraries like scikit-learn", but in practice
-  most of modules 3–5 use it (`KMeans`, `PCA`, `StandardScaler`, `MinMaxScaler`,
-  `RandomForestClassifier`, `KNeighborsClassifier`, `VotingClassifier`,
-  `train_test_split`, …). The genuinely from-scratch part is the **confusion
-  matrix** in `5/ex00`. Consider rewording that description for accuracy.
-- **Run each script from its own directory.** Several scripts hardcode their
-  input filename (e.g. `Histogram.py` reads `Test_knight.csv`, `Heatmap.py` reads
-  `Train_knight.csv`), so they expect the CSV to sit next to them. The Knight
-  CSVs currently live in `4/ex02/ex03/`.
-- **Hardcoded database credentials.** The module-3 scripts embed
-  `user=fprevot`, `password=mysecretpassword`, `dbname=piscineds`,
-  `host=localhost`. This is the default local piscine setup (low risk), but
-  moving these to environment variables would be cleaner and avoids committing
-  credentials.
-- **Add a `requirements.txt`** (and ideally a top-level note on how to start
-  PostgreSQL / load the CSVs) so the project is reproducible from a clean clone.
